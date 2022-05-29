@@ -1,37 +1,33 @@
 import React from 'react'
-import { Card, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom'
-import Peliculas from '../Peliculas/Peliculas';
+import { Container, Navbar , Nav } from 'react-bootstrap';
+import { Link, Outlet } from 'react-router-dom'
 
 
 
 
-const Inicio = ({info}) => {
-  
 
+const Inicio = () => {
   return (
-    <div>
-     <div>
-        {info && 
-        info.map(film =>
-        <Card key={film.id} style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={film.image} />
-          <Card.Body>
-          <Card.Title>{film.title}</Card.Title>
-          <Button> Más info</Button>
-          
-          
-         
-         
-          
-          </Card.Body>
-        </Card> 
-        )}
-      </div>
-
-
-      
-    </div>
+    <>
+    <Navbar bg="light" epand ="lg">
+      <Container>
+      <Navbar.Brand href="">Studio Ghibli </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link as={Link} to="/">
+                Home
+              </Nav.Link>
+              <Nav.Link as={Link} to="/peliculas">
+                Peliculas
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <h1>Home</h1>
+      <Outlet></Outlet>
+    </>
   )
 }
 
